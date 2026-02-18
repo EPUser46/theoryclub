@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cornell Theory Club</title>
+    <title>CS Theory Club</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: #b31b1b; /* deep red background */
+            color: #222;
             padding: 20px;
         }
 
@@ -25,191 +20,271 @@
             margin: 0 auto;
             background: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
         }
 
         header {
             text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #667eea;
-            margin-bottom: 30px;
+            border-bottom: 4px solid #b31b1b;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         h1 {
-            font-size: 2.5em;
-            color: #667eea;
-            margin-bottom: 10px;
+            font-size: 2.6em;
+            color: #b31b1b;
         }
 
         .tagline {
-            font-size: 1.2em;
             color: #666;
             font-style: italic;
+            margin-top: 8px;
         }
 
-        .section {
-            margin-bottom: 30px;
+        .club-photo {
+            margin: 25px 0;
+            text-align: center;
         }
 
-        .section h2 {
-            font-size: 1.8em;
-            color: #764ba2;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
+        .club-photo img {
+            max-width: 100%;
+            border-radius: 10px;
         }
 
+        /* Meeting banner */
         .meeting-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #b31b1b;
             color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             text-align: center;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
-        .meeting-info h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        .meeting-details {
+        .meeting-info strong {
             font-size: 1.3em;
-            line-height: 2;
         }
 
-        .meeting-details strong {
-            display: block;
-            font-size: 1.5em;
-            margin-top: 10px;
+        .section { margin-bottom: 35px; }
+
+        .section h2 {
+            color: #b31b1b;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
         }
 
         .about {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
+            background: #fafafa;
+            padding: 20px;
+            border-left: 5px solid #b31b1b;
+            border-radius: 6px;
         }
 
+        /* Topics grid */
         .topics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 15px;
         }
 
         .topic-card {
-            background: #f5f5f5;
-            padding: 20px;
+            background: #f4f4f4;
+            padding: 18px;
             border-radius: 8px;
-            border-left: 4px solid #764ba2;
+            border-left: 4px solid #b31b1b;
         }
 
         .topic-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
+            color: #b31b1b;
+            margin-bottom: 6px;
         }
+
+        /* Schedule */
+        .talk {
+            display: flex;
+            gap: 18px;
+            padding: 16px;
+            margin-bottom: 12px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .talk img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #b31b1b;
+        }
+
+        .talk-title { font-weight: 600; }
+        .talk-meta { color: #666; font-size: 0.95em; }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #f0f0f0;
-            color: #666;
+            margin-top: 35px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            color: #777;
         }
 
-        .contact {
-            background: #fff9e6;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .meeting-info h3 {
-                font-size: 1.5em;
-            }
+        @media (max-width: 700px) {
+            .talk { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Cornell Theory Club</h1>
-            <p class="tagline">Exploring the Theoretical Foundations of Computer Science</p>
-        </header>
+<div class="container">
 
-        <div class="meeting-info">
-            <h3>Weekly Meetings</h3>
-            <div class="meeting-details">
-                <p>Join us every week!</p>
-                <strong>Wednesdays at 5:00 PM</strong>
-            </div>
-        </div>
+<header>
+    <h1>CS Theory Club</h1>
+    <p class="tagline">Undergraduates enjoying the foundations of theoretical computer science.</p>
+</header>
 
-        <div class="section">
-            <h2>About Us</h2>
-            <div class="about">
-                <p>
-                    The Cornell Theory Club is a community of students passionate about theoretical computer science. 
-                    We meet regularly to discuss cutting-edge research, share insights, and explore the mathematical 
-                    foundations that underpin modern computing.
-                </p>
-                <p style="margin-top: 15px;">
-                    Whether you're interested in algorithms, complexity theory, cryptography, or any other area of 
-                    theoretical CS, you'll find a welcoming community here. All skill levels are welcome!
-                </p>
-            </div>
-        </div>
+<div class="club-photo">
+    <img src="club.jpg" alt="Club Photo">
+</div>
 
-        <div class="section">
-            <h2>Topics We Explore</h2>
-            <div class="topics">
-                <div class="topic-card">
-                    <h4>Algorithms</h4>
-                    <p>Design and analysis of efficient algorithms for computational problems</p>
-                </div>
-                <div class="topic-card">
-                    <h4>Complexity Theory</h4>
-                    <p>Understanding the inherent difficulty of computational problems</p>
-                </div>
-                <div class="topic-card">
-                    <h4>Cryptography</h4>
-                    <p>Theoretical foundations of secure communication and computation</p>
-                </div>
-                <div class="topic-card">
-                    <h4>Quantum Computing</h4>
-                    <p>Exploring the power and limitations of quantum algorithms</p>
-                </div>
-            </div>
-        </div>
+<div class="meeting-info">
+    <p><strong>Wednesdays at 5:00 PM — CIS 450</strong></p>
+    <p>Pizza provided!</p>
+</div>
 
-        <div class="section">
-            <h2>Get Involved</h2>
-            <div class="contact">
-                <p>
-                    Interested in joining us? Come to one of our weekly meetings on <strong>Wednesdays at 5:00 PM</strong>!
-                </p>
-                <p style="margin-top: 15px;">
-                    We welcome students from all backgrounds and levels of experience. Whether you're a seasoned 
-                    theorist or just curious about the field, we'd love to have you join our discussions.
-                </p>
-            </div>
-        </div>
+<div class="section">
+    <h2>About Us</h2>
+    <div class="about">
+        We are a community of Cornell students who are passionate about theoretical computer science (TCS)! We hold weekly meetings to discuss anything that sparks curiosity and gets us thinking like theoretical computer scientists. This semester, we are hosting weekly talks by professors, graduate students, and undergraduates. Topics range from presenting cutting-edge research and motivating open problems in TCS to sharing personal stories and much more.
+        
+        <br><br>
 
-        <footer>
-            <p>&copy; 2026 Cornell Theory Club. All rights reserved.</p>
-            <p style="margin-top: 10px;">Cornell University, Ithaca, NY</p>
-        </footer>
+        Come to any of our meetings! We warmly welcome anyone who is interested—undergraduate or graduate, from any area of study. We strive to make our meetings as accessible as possible. Because TCS requires a certain level of mathematical maturity, we expect experience with proofs and probability at the level of CS 2800 and recommend familiarity with algorithms at the level of CS 4820 (see: https://www.cs.cornell.edu/courses/cs4820/2025sp/lectures/).
+
     </div>
+</div>
+
+<div class="section">
+    <h2>Topics We Explore</h2>
+    <div class="topics">
+        <div class="topic-card">
+            <h4>Algorithms</h4>
+            <p>Design and analysis of efficient algorithms.</p>
+        </div>
+
+        <div class="topic-card">
+            <h4>Complexity Theory</h4>
+            <p>Understanding computational hardness.</p>
+        </div>
+
+        <div class="topic-card">
+            <h4>Cryptography</h4>
+            <p>Theoretical foundations of secure computation.</p>
+        </div>
+
+        <div class="topic-card">
+            <h4>Quantum Computing</h4>
+            <p>Power and limits of quantum algorithms.</p>
+        </div>
+
+        <div class="topic-card">
+            <h4>Automata Theory</h4>
+            <p>Languages, machines, and the structure of computation.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Schedule</h2>
+
+    <div class="talk">
+        <img src="profile/2-25.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">Feb 25 · Noah Stephens-Davidowitz</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">March 4 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/3-11.png" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">March 11 · Anke van Zuylen</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">March 18 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">March 25 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/4-8.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">April 8 · David Bindel</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">April 15 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">April 22 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">April 29 · Speaker TBD</div>
+        </div>
+    </div>
+
+    <div class="talk">
+        <img src="profile/example.jpg" alt="Speaker">
+        <div>
+            <div class="talk-title">Title TBD</div>
+            <div class="talk-meta">May 6 · Speaker TBD</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 CS Theory Club</p>
+</footer>
+
+</div>
 </body>
 </html>
