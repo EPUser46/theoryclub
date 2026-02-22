@@ -1,290 +1,470 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Theory Club</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CS Theory Club</title>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #b31b1b; /* deep red background */
-            color: #222;
-            padding: 20px;
-        }
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background: #b31b1b;
+                color: #222;
+                padding: 20px;
+            }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 14px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-        }
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                padding: 40px;
+                border-radius: 14px;
+                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+            }
 
-        header {
-            text-align: center;
-            border-bottom: 4px solid #b31b1b;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-        }
+            header {
+                text-align: center;
+                border-bottom: 4px solid #b31b1b;
+                padding-bottom: 20px;
+                margin-bottom: 25px;
+            }
 
-        h1 {
-            font-size: 2.6em;
-            color: #b31b1b;
-        }
+            h1 {
+                font-size: 2.6em;
+                color: #b31b1b;
+            }
 
-        .tagline {
-            color: #666;
-            font-style: italic;
-            margin-top: 8px;
-        }
+            .tagline {
+                color: #666;
+                font-style: italic;
+                margin-top: 8px;
+            }
 
-        .club-photo {
-            margin: 25px 0;
-            text-align: center;
-        }
+            .club-photo {
+                margin: 25px 0;
+                text-align: center;
+            }
 
-        .club-photo img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
+            .club-photo img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
 
-        /* Meeting banner */
-        .meeting-info {
-            background: #b31b1b;
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 25px 0;
-        }
+            .meeting-info {
+                background: #b31b1b;
+                color: white;
+                padding: 25px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 25px 0;
+                line-height: 1.6;
+            }
 
-        .meeting-info strong {
-            font-size: 1.3em;
-        }
+            .section {
+                margin-bottom: 35px;
+            }
 
-        .section { margin-bottom: 35px; }
+            .section h2 {
+                color: #b31b1b;
+                margin-bottom: 12px;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 6px;
+            }
 
-        .section h2 {
-            color: #b31b1b;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 6px;
-        }
+            .about {
+                background: #fafafa;
+                padding: 20px;
+                border-left: 5px solid #b31b1b;
+                border-radius: 6px;
+            }
 
-        .about {
-            background: #fafafa;
-            padding: 20px;
-            border-left: 5px solid #b31b1b;
-            border-radius: 6px;
-        }
+            .topics {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 18px;
+                margin-top: 15px;
+            }
 
-        /* Topics grid */
-        .topics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 18px;
-            margin-top: 15px;
-        }
+            .topic-card {
+                background: #f4f4f4;
+                padding: 18px;
+                border-radius: 8px;
+                border-left: 4px solid #b31b1b;
+            }
 
-        .topic-card {
-            background: #f4f4f4;
-            padding: 18px;
-            border-radius: 8px;
-            border-left: 4px solid #b31b1b;
-        }
+            .topic-card h4 {
+                color: #b31b1b;
+                margin-bottom: 6px;
+            }
 
-        .topic-card h4 {
-            color: #b31b1b;
-            margin-bottom: 6px;
-        }
+            .talk {
+                display: flex;
+                gap: 18px;
+                padding: 16px;
+                margin-bottom: 12px;
+                background: #f7f7f7;
+                border-radius: 8px;
+                align-items: center;
+                cursor: pointer;
+                transition:
+                    transform 0.1s ease,
+                    box-shadow 0.1s ease;
+            }
 
-        /* Schedule */
-        .talk {
-            display: flex;
-            gap: 18px;
-            padding: 16px;
-            margin-bottom: 12px;
-            background: #f7f7f7;
-            border-radius: 8px;
-            align-items: center;
-        }
+            .talk:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            }
 
-        .talk img {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #b31b1b;
-        }
+            .talk img {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid #b31b1b;
+            }
 
-        .talk-title { font-weight: 600; }
-        .talk-meta { color: #666; font-size: 0.95em; }
+            .talk-title {
+                font-weight: 600;
+            }
+            .talk-meta {
+                color: #666;
+                font-size: 0.95em;
+            }
 
-        footer {
-            text-align: center;
-            margin-top: 35px;
-            padding-top: 15px;
-            border-top: 2px solid #eee;
-            color: #777;
-        }
+            footer {
+                text-align: center;
+                margin-top: 35px;
+                padding-top: 15px;
+                border-top: 2px solid #eee;
+                color: #777;
+            }
 
-        @media (max-width: 700px) {
-            .talk { flex-direction: column; text-align: center; }
-        }
-    </style>
-</head>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
 
-<body>
-<div class="container">
+            .modal-content {
+                background: white;
+                width: min(700px, 90%);
+                margin: 8% auto;
+                padding: 30px;
+                border-radius: 12px;
+                position: relative;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
 
-<header>
-    <h1>CS Theory Club</h1>
-    <p class="tagline">Undergraduates enjoying the foundations of theoretical computer science.</p>
-</header>
+            .modal-content h3 {
+                margin-top: 18px;
+                color: #b31b1b;
+                margin-bottom: 8px;
+            }
 
-<div class="club-photo">
-    <img src="club.jpg" alt="Club Photo">
-</div>
+            /* Added properties below to preserve line breaks in abstracts/bios */
+            #modal-bio, #modal-abstract {
+                white-space: pre-wrap;
+                line-height: 1.6;
+            }
 
-<div class="meeting-info">
-    <p><strong>Wednesdays at 5:00 PM — CIS 450</strong></p>
-    <p>Pizza provided!</p>
-</div>
+            .close {
+                position: absolute;
+                right: 18px;
+                top: 10px;
+                font-size: 26px;
+                cursor: pointer;
+                color: #888;
+            }
 
-<div class="section">
-    <h2>About Us</h2>
-    <div class="about">
-        We are a community of Cornell students who are passionate about theoretical computer science (TCS)! We hold weekly meetings to discuss anything that sparks curiosity and gets us thinking like theoretical computer scientists. This semester, we are hosting weekly talks by professors, graduate students, and undergraduates. Topics range from presenting cutting-edge research and motivating open problems in TCS to sharing personal stories and much more.
-        
-        <br><br>
+            .close:hover {
+                color: #b31b1b;
+            }
 
-        Come to any of our meetings! We warmly welcome anyone who is interested—undergraduate or graduate, from any area of study. We strive to make our meetings as accessible as possible. Because TCS requires a certain level of mathematical maturity, we expect experience with proofs and probability at the level of CS 2800 and recommend familiarity with algorithms at the level of CS 4820 (see: https://www.cs.cornell.edu/courses/cs4820/2025sp/lectures/).
+            @media (max-width: 700px) {
+                .talk {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
 
-    </div>
-</div>
+    <body>
+        <div class="container">
+            <header>
+                <h1>CS Theory Club</h1>
+                <p class="tagline">
+                    Undergraduates enjoying the foundations of theoretical
+                    computer science.
+                </p>
+            </header>
 
-<div class="section">
-    <h2>Topics We Explore</h2>
-    <div class="topics">
-        <div class="topic-card">
-            <h4>Algorithms</h4>
-            <p>Design and analysis of efficient algorithms.</p>
+            <div class="club-photo">
+                <img src="club.jpg" alt="Club Photo" />
+            </div>
+
+            <div class="meeting-info">
+                <p style="font-size: 20px">
+                    <strong>Wednesdays at 5:00 PM — CIS 450</strong>
+                </p>
+
+                <p><strong>5:00-5:30 PM:</strong> Reception/Social</p>
+                <p><strong>5:30-6:30 PM:</strong> Talk</p>
+
+                <p>Pizza provided!</p>
+            </div>
+
+            <div class="section">
+                <h2>About Us</h2>
+                <div class="about">
+                    We are a community of Cornell students who are passionate
+                    about theoretical computer science (TCS)! We hold weekly
+                    meetings to discuss anything that sparks curiosity and gets
+                    us thinking like theoretical computer scientists. This
+                    semester, we are hosting weekly talks by professors,
+                    graduate students, and undergraduates. Topics range from
+                    presenting cutting-edge research and motivating open
+                    problems in TCS to sharing personal stories and much more.
+                    <br /><br />
+                    Come to any of our meetings! We warmly welcome anyone who is
+                    interested—undergraduate or graduate, from any area of
+                    study. We strive to make our meetings as accessible as
+                    possible. Because TCS requires a certain level of
+                    mathematical maturity, we expect experience with proofs and
+                    probability at the level of CS 2800 and recommend
+                    familiarity with algorithms at the level of CS 4820 (see:
+                    <a
+                        href="https://www.cs.cornell.edu/courses/cs4820/2025sp/lectures/"
+                        >CS 4820 Lectures</a
+                    >).
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Topics We Explore</h2>
+                <div class="topics">
+                    <div class="topic-card">
+                        <h4>Algorithms</h4>
+                        <p>Design and analysis of efficient algorithms.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Complexity Theory</h4>
+                        <p>Understanding computational hardness.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Cryptography</h4>
+                        <p>Theoretical foundations of secure computation.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Quantum Computing</h4>
+                        <p>Power and limits of quantum algorithms.</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Automata Theory</h4>
+                        <p>Languages and the structure of computation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Schedule</h2>
+
+                <div
+                    class="talk"
+                    data-name="Noah Stephens-Davidowitz"
+                    data-bio="Noah Stephens-Davidowitz is an assistant professor in the Department of Computer Science, and a member of the applied math field and the mathematics field. His research to date has focused primarily on the study of lattices. He is also interested more broadly in theoretical computer science, cryptography, and geometry."
+                    data-abstract="We will try to tell some of the story of lattices in theoretical computer science and cryptography.
+
+We start with (1) the celebrated LLL algorithm from 1982—an incredibly useful algorithm that solves a seemingly not-so-useful problem—and the central role that lattices played in breaking many early cryptographic schemes.
+
+We will then move to (2) Ajtai's amazing worst-case to average-case reduction from 1996, showing how to build secure secret-key cryptography under the assumption that a certain *worst-case* *approximate* lattice problem is hard. We will then see how around the same time, (3) Ajtai proved that the exact version of this problem was NP-hard (resolving a decades-old open question), which was followed by a series of NP-hardness of approximation results with progressively larger approximation factors. Together, these results led to speculation and hope that lattice techniques might lead us to one of the holy grails of cryptography: proof that cryptography exists under the minimal assumption that BPP =/= NP---all one had to do was show NP-hardness for an approximation factor large enough to be compatible with Ajtai's worst-case to average-case reduction!
+
+This hope was basically quashed by (4) Goldreich and Goldwasser's simple and elegant 1998 proof system for approximate lattice problems, suggesting that NP-hardness was unlikely.  Though this result largely ruled out a very exciting line of research, it also introduced powerful and beautiful tools that have found innumerable applications in lattice cryptography and beyond.
+
+Finally, we will discuss (5) Regev's worst-case to average-case reduction from 2005, showing how to build secure *public-key* cryptography, again under the assumption that a certain worst-case approximate lattice problem is hard. This result led to a revolution in cryptography, with applications ranging from fully homomorphic encryption to the post-quantum cryptographic schemes that will be running the internet shortly.
+
+And, time permitting, I'll say a bit about my own work in this field."
+                >
+                    <img src="profile/2-25.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Lattices in theoretical computer science and cryptography—some snippets from a >40-year history</div>
+                        <div class="talk-meta">
+                            Feb 25 · Noah Stephens-Davidowitz · Click for details
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">March 4 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="Anke van Zuylen"
+                    data-bio="Anke van Zuylen is a teaching professor in the Department of Computer Science. Her research interests are in combinatorial optimization. She designs and analyzes algorithms for optimization problems arising in areas such as: information science, in particular, aggregating inconsistent structured information; network design, scheduling and logistics, and computational biology."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/3-11.png" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">March 11 · Anke van Zuylen · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="Matthew Eichhorn"
+                    data-bio="Matthew Eichhorn is a lecturer of computer science who leads large undergraduate courses on discrete mathematics and programming. His research focuses on developing tools to inform decisions with societal implications. This ranges from developing algorithms for online team formation, finding ways to fairly distribute goods in settings such as public health and education where the normative allocation criteria are often at odds, and using statistical tools from causal inference to estimate the effectiveness of an intervention that propagates through a social interference network."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/3-18.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">March 18 · Matthew Eichhorn · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">March 25 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="David Bindel"
+                    data-bio="David S. Bindel is a professor of computer science and director of the Center for Applied Math. He works at the interface of computational science and engineering, and his research mixes mathematical analysis, application modeling, and software design. Active research areas include: optimizing stellarators, verified numerics, kernel methods, parallel surrogate optimization, spectral network analysis, nonlinear eigenvalue bounds, and nonlinear waves in resonant MEMS. Bindel received his Ph.D. in computer science from the University of California, Berkeley and his B.S. in math and computer science from the University of Maryland, College Park. He is a SIAM Fellow and Sloan Fellow."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/4-8.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">April 8 · David Bindel · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">April 15 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">April 22 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">April 29 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+
+                <div
+                    class="talk"
+                    data-name="TBD"
+                    data-bio="Biography forthcoming."
+                    data-abstract="Abstract forthcoming."
+                >
+                    <img src="profile/example.jpg" alt="Speaker" />
+                    <div>
+                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-meta">May 6 · Speaker TBD · Click for details</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2026 CS Theory Club</p>
+            </footer>
         </div>
 
-        <div class="topic-card">
-            <h4>Complexity Theory</h4>
-            <p>Understanding computational hardness.</p>
+        <div id="speaker-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-name"></h2>
+
+                <h3>Biography</h3>
+                <p id="modal-bio"></p>
+
+                <h3>Talk Abstract</h3>
+                <p id="modal-abstract"></p>
+            </div>
         </div>
 
-        <div class="topic-card">
-            <h4>Cryptography</h4>
-            <p>Theoretical foundations of secure computation.</p>
-        </div>
+        <script>
+            const modal = document.getElementById("speaker-modal");
+            const modalName = document.getElementById("modal-name");
+            const modalBio = document.getElementById("modal-bio");
+            const modalAbstract = document.getElementById("modal-abstract");
+            const closeBtn = document.querySelector(".close");
 
-        <div class="topic-card">
-            <h4>Quantum Computing</h4>
-            <p>Power and limits of quantum algorithms.</p>
-        </div>
+            document.querySelectorAll(".talk").forEach((talk) => {
+                talk.addEventListener("click", () => {
+                    modalName.textContent = talk.dataset.name;
+                    modalBio.textContent = talk.dataset.bio;
+                    modalAbstract.textContent = talk.dataset.abstract;
+                    modal.style.display = "block";
+                });
+            });
 
-        <div class="topic-card">
-            <h4>Automata Theory</h4>
-            <p>Languages, machines, and the structure of computation.</p>
-        </div>
-    </div>
-</div>
+            closeBtn.onclick = () => (modal.style.display = "none");
 
-<div class="section">
-    <h2>Schedule</h2>
-
-    <div class="talk">
-        <img src="profile/2-25.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">Feb 25 · Noah Stephens-Davidowitz</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">March 4 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/3-11.png" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">March 11 · Anke van Zuylen</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">March 18 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">March 25 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/4-8.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">April 8 · David Bindel</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">April 15 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">April 22 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">April 29 · Speaker TBD</div>
-        </div>
-    </div>
-
-    <div class="talk">
-        <img src="profile/example.jpg" alt="Speaker">
-        <div>
-            <div class="talk-title">Title TBD</div>
-            <div class="talk-meta">May 6 · Speaker TBD</div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 CS Theory Club</p>
-</footer>
-
-</div>
-</body>
+            window.onclick = (e) => {
+                if (e.target === modal) modal.style.display = "none";
+            };
+        </script>
+    </body>
 </html>
