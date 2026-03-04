@@ -338,11 +338,15 @@ In this talk, I'll discuss three tweaks on the binary search problem that, surpr
                     class="talk"
                     data-name="Anke van Zuylen"
                     data-bio="Anke van Zuylen is a teaching professor in the Department of Computer Science. Her research interests are in combinatorial optimization. She designs and analyzes algorithms for optimization problems arising in areas such as: information science, in particular, aggregating inconsistent structured information; network design, scheduling and logistics, and computational biology."
-                    data-abstract="Abstract forthcoming."
+                    data-abstract="The <strong>Maximum Satisfiability (MAX-SAT)</strong> problem is a fundamental problem of theoretical computer science: given a Boolean formula, the goal is to assign truth values to the variables so that as many clauses as possible are satisfied. MAX-SAT is NP-hard, meaning (informally) that we do not expect an efficient algorithm that always finds the optimal assignment. Yet the problem is not hopeless. Because MAX-SAT appears throughout optimization, constraint solving, AI, and verification, understanding how to find <em>good</em> solutions efficiently is both practically valuable and theoretically interesting.
+
+In this talk, we begin by setting up the MAX-SAT problem and discussing what NP-hardness means in this context. We then explore how to design algorithms that run in polynomial time and still guarantee a large (compared to the maximum possible) number of satisfied clauses. Two simple and natural approaches—one <strong>greedy</strong>, one <strong>randomized</strong>—already give simple <strong>1/2-approximation</strong> algorithms, and their analyses introduce the central ideas of <strong>approximation algorithms</strong>.
+
+From there, we turn to what is known about pushing these guarantees further. We will highlight some results from the literature and then take a closer look at a particularly elegant algorithm of <strong>Buchbinder</strong>, <strong>Feldman</strong>, <strong>Naor</strong>, and <strong>Schwartz</strong>, which combines two versions of the simple greedy heuristic with randomization in a clever way. We discuss an analysis of this algorithm due to myself and <strong>Poloczek</strong> and <strong>Williamson</strong>, showing that it satisfies <strong>at least 75% of the optimal number of clauses in expectation</strong>. The talk requires no prior background in complexity theory and aims to give an intuitive introduction to how simple ideas—when combined cleverly—can sometimes lead to strong approximation guarantees."
                 >
                     <img src="profile/3-11.png" alt="Speaker" />
                     <div>
-                        <div class="talk-title">Title TBD</div>
+                        <div class="talk-title">Greedy, Randomized, and Clever: Approximation Algorithms for the Maximum Satisfiability Problem</div>
                         <div class="talk-meta">March 11 · Anke van Zuylen · Click for details</div>
                     </div>
                 </div>
@@ -467,8 +471,11 @@ In this talk, I'll discuss three tweaks on the binary search problem that, surpr
             document.querySelectorAll(".talk").forEach((talk) => {
                 talk.addEventListener("click", () => {
                     modalName.textContent = talk.dataset.name;
-                    modalBio.textContent = talk.dataset.bio;
-                    modalAbstract.textContent = talk.dataset.abstract;
+                    // use innerHTML so that any simple HTML (like <strong>) in the
+                    // data attributes will be rendered, not escaped.  Our data is
+                    // controlled by us so this is safe.
+                    modalBio.innerHTML = talk.dataset.bio;
+                    modalAbstract.innerHTML = talk.dataset.abstract;
                     modal.style.display = "block";
                 });
             });
