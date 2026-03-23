@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CS Theory Club</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         <style>
             * {
@@ -175,7 +176,6 @@
                 margin-bottom: 8px;
             }
 
-            /* Added properties below to preserve line breaks in abstracts/bios */
             #modal-bio, #modal-abstract {
                 white-space: pre-wrap;
                 line-height: 1.6;
@@ -200,13 +200,40 @@
                     text-align: center;
                 }
             }
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logo {
+                height: 60px;
+            }
+
+            @media (max-width: 600px) {
+                .title {
+                    flex-direction: column;
+                }
+
+                .logo {
+                    height: 50px;
+                }
+            }
         </style>
     </head>
 
     <body>
         <div class="container">
             <header>
-                <h1>CS Theory Club</h1>
+                <h1 class="title">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <span>CS Theory Club</span>
+                    <img src="logo.png" alt="Logo" class="logo">
+                </h1>
                 <p class="tagline">
                     Undergraduates enjoying the foundations of theoretical
                     computer science.
@@ -356,9 +383,9 @@ From there, we turn to what is known about pushing these guarantees further. We 
                     class="talk"
                     data-name="Matthew Eichhorn"
                     data-bio="Matthew Eichhorn is a lecturer of computer science who leads large undergraduate courses on discrete mathematics and programming. His research focuses on developing tools to inform decisions with societal implications. This ranges from developing algorithms for online team formation, finding ways to fairly distribute goods in settings such as public health and education where the normative allocation criteria are often at odds, and using statistical tools from causal inference to estimate the effectiveness of an intervention that propagates through a social interference network."
-                    data-abstract="In many real-world settings, we must decide how to allocate a limited pool of resources. We’d like these allocations to be fair, but misaligned notions of fairness based on different normative criteria can complicate this. For example, during a medical emergency, we’d like a way to simultaneously prioritize resources for essential workers, while also prioritizing individuals with co-morbidities, while also ensuring adequate access for marginalized groups. As another example, colleges have pools of scholarship money to award for academic merit, extracurricular achievements, athletics, demographic characteristics, etc. and must decide how to award this across their students (who may each quality for multiple awards). 
+                    data-abstract="In many real-world settings, we must decide how to allocate a limited pool of resources. We'd like these allocations to be fair, but misaligned notions of fairness based on different normative criteria can complicate this. For example, during a medical emergency, we'd like a way to simultaneously prioritize resources for essential workers, while also prioritizing individuals with co-morbidities, while also ensuring adequate access for marginalized groups. As another example, colleges have pools of scholarship money to award for academic merit, extracurricular achievements, athletics, demographic characteristics, etc. and must decide how to award this across their students (who may each quality for multiple awards). 
 
-In this talk, we’ll see how we can formally model these situations as priority-respecting allocation problems. Once we have this mathematical model, we can consider different algorithmic approaches. By switching off between mathematical (equations), algorithmic (computational procedures), and geometric (pictures)  viewpoints of these problems, we’ll develop a complete algorithmic characterization of all satisfactory allocations, exhibiting a bijection between these allocations and maximum-weight matchings under carefully chosen rank-based weights. Time permitting, we’ll see how this characterization allows us to think about interesting extensions of this problem."
+In this talk, we'll see how we can formally model these situations as priority-respecting allocation problems. Once we have this mathematical model, we can consider different algorithmic approaches. By switching off between mathematical (equations), algorithmic (computational procedures), and geometric (pictures)  viewpoints of these problems, we'll develop a complete algorithmic characterization of all satisfactory allocations, exhibiting a bijection between these allocations and maximum-weight matchings under carefully chosen rank-based weights. Time permitting, we'll see how this characterization allows us to think about interesting extensions of this problem."
                 >
                     <img src="profile/3-18.jpg" alt="Speaker" />
                     <div>
@@ -409,7 +436,7 @@ In this talk, we’ll see how we can formally model these situations as priority
                 <div
                     class="talk"
                     data-name="Noam Ringach"
-                    data-bio="Bio forthcoming."
+                    data-bio="Noah Ringach is a fourth year Ph.D. candidate in computer science at Cornell University advised by Eshan Chattopadhyay. He did his undergrad in math and master's in CS at Stanford. He is currently interested in theoretical computer science, specifically pseudorandomness, combinatorics, and complexity theory. His recent work is mainly on condensing from adversarial sources, lossless expansion in bipartite graphs, and coin flipping/leader election protocols."
                     data-abstract="Abstract forthcoming."
                 >
                     <img src="profile/4-22.jpg" alt="Speaker" />
@@ -474,9 +501,6 @@ In this talk, we’ll see how we can formally model these situations as priority
             document.querySelectorAll(".talk").forEach((talk) => {
                 talk.addEventListener("click", () => {
                     modalName.textContent = talk.dataset.name;
-                    // use innerHTML so that any simple HTML (like <strong>) in the
-                    // data attributes will be rendered, not escaped.  Our data is
-                    // controlled by us so this is safe.
                     modalBio.innerHTML = talk.dataset.bio;
                     modalAbstract.innerHTML = talk.dataset.abstract;
                     modal.style.display = "block";
