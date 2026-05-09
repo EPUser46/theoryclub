@@ -223,6 +223,75 @@
                     height: 50px;
                 }
             }
+
+            .nav-button {
+                display: inline-block;
+                background: #b31b1b;
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-weight: 600;
+                transition: background 0.2s, transform 0.2s;
+            }
+            .nav-button:hover {
+                background: #8e1515;
+                transform: translateY(-2px);
+            }
+            .nav-container {
+                margin-top: 15px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .leadership-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+                text-align: center;
+            }
+            .leadership-member {
+                background: #f9f9f9;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            }
+            .leadership-img-wrapper {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 3px solid #b31b1b;
+                margin: 0 auto 10px auto;
+                overflow: hidden;
+            }
+            .leadership-img-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .zoom-nancy {
+                transform: scale(1.8);
+                transform-origin: center center;
+            }
+            .zoom-max {
+                transform: scale(1.5);
+                transform-origin: center center;
+            }
+            .zoom-ahan {
+                transform: scale(1.3);
+                transform-origin: center bottom;
+            }
+            .leadership-member h4 {
+                color: #b31b1b;
+                margin-bottom: 5px;
+            }
+            .leadership-member p {
+                color: #666;
+                font-size: 0.9em;
+            }
         </style>
     </head>
 
@@ -232,16 +301,20 @@
                 <img src="logo.png" alt="Logo" class="logo">
                 <div>
                     <h1><span>CS Theory Club</span></h1>
-                     <p class="tagline">
-                    Undergraduates learning about theoretical
-                    computer science.
-                </p>
+                    <p class="tagline">
+                        Undergraduates learning about theoretical
+                        computer science.
+                    </p>
+                    <div class="nav-container">
+                        <a href="#about" class="nav-button">About Us</a>
+                        <a href="#schedule" class="nav-button">Schedule</a>
+                        <a href="#leadership" class="nav-button">Leadership Team</a>
+                    </div>
                 </div>
-                </header>
+            </header>
 
             <div class="club-photo">
                 <img src="club1.jpg" alt="Club Photo" />
-                <!-- <img src="club2.jpg" alt="Club Photo" /> -->
             </div>
 
             <div class="meeting-info">
@@ -269,7 +342,7 @@
                 </p>
             </div>
 
-            <div class="section">
+            <div class="section" id="about">
                 <h2>About Us</h2>
                 <div class="about">
                     We are a community of Cornell students who are passionate
@@ -325,7 +398,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section" id="schedule">
                 <h2>Schedule</h2>
 
                 <div
@@ -477,6 +550,47 @@ This talk is geared towards a general undergraduate CS audience, although some f
                     <div>
                         <div class="talk-title">Defying Gravity with Range Minimum Queries</div>
                         <div class="talk-meta">April 29 · Joey Rivkin · Click for details</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="leadership">
+                <h2>Leadership Team</h2>
+                <div class="leadership-grid">
+                    <div class="leadership-member">
+                        <div class="leadership-img-wrapper">
+                            <img src="leadership/michael.jpg" alt="Michael" />
+                        </div>
+                        <h4>Michael Ngo</h4>
+                        <p>Founder / Student Advisor</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-img-wrapper">
+                            <img src="leadership/nancy.JPG" alt="Nancy" class="zoom-nancy" />
+                        </div>
+                        <h4>Nancy Chen</h4>
+                        <p>Co-President</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-img-wrapper">
+                            <img src="leadership/ahan.JPG" alt="Ahan" class="zoom-ahan" />
+                        </div>
+                        <h4>Ahan Mishra</h4>
+                        <p>Web Maintainer</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-img-wrapper">
+                            <img src="leadership/max.jpg" alt="Max" class="zoom-max" />
+                        </div>
+                        <h4>Max Scialabba</h4>
+                        <p>Treasurer</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-img-wrapper">
+                            <img src="leadership/tardos.jpg" alt="Tardos" />
+                        </div>
+                        <h4>Prof. Éva Tardos</h4>
+                        <p>Faculty Advisor</p>
                     </div>
                 </div>
             </div>
