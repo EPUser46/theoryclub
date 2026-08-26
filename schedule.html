@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schedule | Cornell CS Theory Club</title>
+    <meta name="description" content="Spring 2026 talk schedule for the Cornell CS Theory Club. Weekly faculty, graduate, and undergraduate lectures in theoretical computer science.">
+    <link rel="canonical" href="https://theoryclub.cs.cornell.edu/schedule.html">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Site Header & Navigation Bar -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="site-title-container">
+                    <a href="index.html"><img src="logo.png" alt="CS Theory Club Logo" class="site-logo"></a>
+                    <a class="site-title" rel="author" href="index.html"><span class="cornell">Cornell</span> CS Theory Club</a>
+                </div>
+                <div class="navbar-contents">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="active"><a href="schedule.html">Schedule</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="schedule.html" title="Search talks" class="nav-search-btn">⌕</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Page Content -->
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <h1 class="page-heading">Spring 2026 Talk Schedule</h1>
+
+            <div class="subnav-pills">
+                <a href="#speakers">All 10 Talks</a>
+                <a href="#meeting-info">Meeting Format</a>
+                <a href="#talk-search">Search Talks</a>
+            </div>
+
+            <p>
+                Our meetings take place on <strong>Wednesdays from 5:00 PM to 6:30 PM</strong> in <strong>CIS 450 (Gates Hall)</strong>. 
+                Each session starts with a 30-minute reception with pizza, followed by an hour-long research presentation and lively discussion.
+            </p>
+
+            <div class="info-box">
+                <p>
+                    <strong>Meeting Format:</strong> 5:00–5:30 PM Reception (Pizza provided) &middot; 5:30–6:30 PM Talk &amp; Discussion.<br>
+                    <strong>Want to speak?</strong> If you are interested in presenting research, an open problem, or an interesting theory topic, please email 
+                    <a href="mailto:mn542@cornell.edu?subject=Speaker%20Proposal%20CS%20Theory%20Club">mn542@cornell.edu</a>.
+                </p>
+            </div>
+
+            <!-- Search / Filter Box -->
+            <div class="search-container">
+                <input type="text" id="talk-search" class="search-input" placeholder="Search talks by speaker, title, topic, or date..." aria-label="Search talks">
+            </div>
+
+            <!-- Talks List -->
+            <div class="talk-list" id="speakers">
+
+                <!-- Feb 25 -->
+                <div class="talk-card"
+                    data-name="Noah Stephens-Davidowitz"
+                    data-bio="Noah Stephens-Davidowitz is an assistant professor in the Department of Computer Science, and a member of the applied math field and the mathematics field. His research to date has focused primarily on the study of lattices. He is also interested more broadly in theoretical computer science, cryptography, and geometry."
+                    data-abstract="We will try to tell some of the story of lattices in theoretical computer science and cryptography.
+
+We start with (1) the celebrated LLL algorithm from 1982—an incredibly useful algorithm that solves a seemingly not-so-useful problem—and the central role that lattices played in breaking many early cryptographic schemes.
+
+We will then move to (2) Ajtai's amazing worst-case to average-case reduction from 1996, showing how to build secure secret-key cryptography under the assumption that a certain *worst-case* *approximate* lattice problem is hard. We will then see how around the same time, (3) Ajtai proved that the exact version of this problem was NP-hard (resolving a decades-old open question), which was followed by a series of NP-hardness of approximation results with progressively larger approximation factors. Together, these results led to speculation and hope that lattice techniques might lead us to one of the holy grails of cryptography: proof that cryptography exists under the minimal assumption that BPP =/= NP---all one had to do was show NP-hardness for an approximation factor large enough to be compatible with Ajtai's worst-case to average-case reduction!
+
+This hope was basically quashed by (4) Goldreich and Goldwasser's simple and elegant 1998 proof system for approximate lattice problems, suggesting that NP-hardness was unlikely. Though this result largely ruled out a very exciting line of research, it also introduced powerful and beautiful tools that have found innumerable applications in lattice cryptography and beyond.
+
+Finally, we will discuss (5) Regev's worst-case to average-case reduction from 2005, showing how to build secure *public-key* cryptography, again under the assumption that a certain worst-case approximate lattice problem is hard. This result led to a revolution in cryptography, with applications ranging from fully homomorphic encryption to the post-quantum cryptographic schemes that will be running the internet shortly.
+
+And, time permitting, I'll say a bit about my own work in this field."
+                >
+                    <img src="speakers/2-25.jpg" alt="Noah Stephens-Davidowitz">
+                    <div class="talk-content">
+                        <div class="talk-title">Lattices in theoretical computer science and cryptography—some snippets from a &gt;40-year history</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">Feb 25</span>
+                            <span class="tag">Cryptography</span>
+                            <span>Noah Stephens-Davidowitz &middot; Assistant Professor</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- March 4 -->
+                <div class="talk-card"
+                    data-name="Robert Kleinberg"
+                    data-bio="Robert Kleinberg is a professor of computer science at Cornell University and a member of the field of information science. His research studies the design and analysis of algorithms and their applications to electronic commerce, networking, information retrieval, and other areas. Prior to receiving his doctorate from the Massachusetts Institute of Technology in 2005, Kleinberg spent three years at Akamai Technologies, where he assisted in designing the world's largest Internet Content Delivery Network. He is the recipient of a Microsoft Research New Faculty Fellowship, an Alfred P. Sloan Foundation Fellowship, and an NSF CAREER Award."
+                    data-abstract="Binary search is the most elementary example of an algorithm that achieves an exponential speed-up over brute-force search. For this reason, it is both a textbook example in introductory CS courses and an indispensable ingredient in more sophisticated algorithms. The analysis of binary search captures (with precisely matching upper and lower bounds) the query complexity of locating an element in an ordered list. What more is there to say about binary search? 
+
+In this talk, I'll discuss three tweaks on the binary search problem that, surprisingly, remained unanswered until the twenty-first century. All three examples are drawn from my own research. The first part of the talk revisits binary search with an asymmetric loss function motivated by dynamic pricing. The second part of the talk concerns noisy binary search, where the algorithm must be made robust against incorrect responses to some of its queries."
+                >
+                    <img src="speakers/3-4.png" alt="Robert Kleinberg">
+                    <div class="talk-content">
+                        <div class="talk-title">My adventures with binary search</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">March 4</span>
+                            <span class="tag">Algorithms</span>
+                            <span>Robert Kleinberg &middot; Professor</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- March 11 -->
+                <div class="talk-card"
+                    data-name="Anke van Zuylen"
+                    data-bio="Anke van Zuylen is a teaching professor in the Department of Computer Science. Her research interests are in combinatorial optimization. She designs and analyzes algorithms for optimization problems arising in areas such as: information science, in particular, aggregating inconsistent structured information; network design, scheduling and logistics, and computational biology."
+                    data-abstract="The <strong>Maximum Satisfiability (MAX-SAT)</strong> problem is a fundamental problem of theoretical computer science: given a Boolean formula, the goal is to assign truth values to the variables so that as many clauses as possible are satisfied. MAX-SAT is NP-hard, meaning (informally) that we do not expect an efficient algorithm that always finds the optimal assignment. Yet the problem is not hopeless. Because MAX-SAT appears throughout optimization, constraint solving, AI, and verification, understanding how to find <em>good</em> solutions efficiently is both practically valuable and theoretically interesting.
+
+In this talk, we begin by setting up the MAX-SAT problem and discussing what NP-hardness means in this context. We then explore how to design algorithms that run in polynomial time and still guarantee a large (compared to the maximum possible) number of satisfied clauses. Two simple and natural approaches—one <strong>greedy</strong>, one <strong>randomized</strong>—already give simple <strong>1/2-approximation</strong> algorithms, and their analyses introduce the central ideas of <strong>approximation algorithms</strong>.
+
+From there, we turn to what is known about pushing these guarantees further. We will highlight some results from the literature and then take a closer look at a particularly elegant algorithm of <strong>Buchbinder</strong>, <strong>Feldman</strong>, <strong>Naor</strong>, and <strong>Schwartz</strong>, which combines two versions of the simple greedy heuristic with randomization in a clever way. We discuss an analysis of this algorithm due to myself and <strong>Poloczek</strong> and <strong>Williamson</strong>, showing that it satisfies <strong>at least 75% of the optimal number of clauses in expectation</strong>. The talk requires no prior background in complexity theory and aims to give an intuitive introduction to how simple ideas—when combined cleverly—can sometimes lead to strong approximation guarantees."
+                >
+                    <img src="speakers/3-11.png" alt="Anke van Zuylen">
+                    <div class="talk-content">
+                        <div class="talk-title">Greedy, Randomized, and Clever: Approximation Algorithms for the Maximum Satisfiability Problem</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">March 11</span>
+                            <span class="tag">Approximation Algorithms</span>
+                            <span>Anke van Zuylen &middot; Teaching Professor</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- March 18 -->
+                <div class="talk-card"
+                    data-name="Matthew Eichhorn"
+                    data-bio="Matthew Eichhorn is a lecturer of computer science who leads large undergraduate courses on discrete mathematics and programming. His research focuses on developing tools to inform decisions with societal implications. This ranges from developing algorithms for online team formation, finding ways to fairly distribute goods in settings such as public health and education where the normative allocation criteria are often at odds, and using statistical tools from causal inference to estimate the effectiveness of an intervention that propagates through a social interference network."
+                    data-abstract="In many real-world settings, we must decide how to allocate a limited pool of resources. We'd like these allocations to be fair, but misaligned notions of fairness based on different normative criteria can complicate this. For example, during a medical emergency, we'd like a way to simultaneously prioritize resources for essential workers, while also prioritizing individuals with co-morbidities, while also ensuring adequate access for marginalized groups. As another example, colleges have pools of scholarship money to award for academic merit, extracurricular achievements, athletics, demographic characteristics, etc. and must decide how to award this across their students (who may each qualify for multiple awards). 
+
+In this talk, we'll see how we can formally model these situations as priority-respecting allocation problems. Once we have this mathematical model, we can consider different algorithmic approaches. By switching off between mathematical (equations), algorithmic (computational procedures), and geometric (pictures) viewpoints of these problems, we'll develop a complete algorithmic characterization of all satisfactory allocations, exhibiting a bijection between these allocations and maximum-weight matchings under carefully chosen rank-based weights. Time permitting, we'll see how this characterization allows us to think about interesting extensions of this problem."
+                >
+                    <img src="speakers/3-18.jpg" alt="Matthew Eichhorn">
+                    <div class="talk-content">
+                        <div class="talk-title">Fairly Allocating with Graphs</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">March 18</span>
+                            <span class="tag">Fair Division &amp; Graphs</span>
+                            <span>Matthew Eichhorn &middot; Lecturer</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- March 25 -->
+                <div class="talk-card"
+                    data-name="Surendra Ghentiyala"
+                    data-bio="Surendra Ghentiyala is a fourth-year PhD student in theoretical computer science at Cornell University. He is advised by Noah Stephens-Davidowitz. His research is centered around post-quantum cryptography and the mathematical structures that enable the construction of post-quantum cryptosystems, namely lattices and error-correcting codes."
+                    data-abstract="This talk is for a general CS audience on how far we are from proving P ≠ NP. We begin with a brief survey of natural complexity classes and models of computation (e.g., NC¹, L, EXP). We then discuss frontier questions about these classes and why they are weaker than P vs. NP. Finally, we highlight how progress is still made by studying connections between these classes."
+                >
+                    <img src="speakers/3-25.jpg" alt="Surendra Ghentiyala">
+                    <div class="talk-content">
+                        <div class="talk-title">complexity theory: a tour of ignorance</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">March 25</span>
+                            <span class="tag">Complexity Theory</span>
+                            <span>Surendra Ghentiyala &middot; PhD Candidate</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- April 8 -->
+                <div class="talk-card"
+                    data-name="David Bindel"
+                    data-bio="David S. Bindel is a professor of computer science and director of the Center for Applied Math. He works at the interface of computational science and engineering, and his research mixes mathematical analysis, application modeling, and software design. Active research areas include: optimizing stellarators, verified numerics, kernel methods, parallel surrogate optimization, spectral network analysis, nonlinear eigenvalue bounds, and nonlinear waves in resonant MEMS. Bindel received his Ph.D. in computer science from the University of California, Berkeley and his B.S. in math and computer science from the University of Maryland, College Park. He is a SIAM Fellow and Sloan Fellow."
+                    data-abstract="Spectral analysis is one of the power tools in applied mathematics. Beyond being important to the study of vibrations and other dynamic processes, eigenvalue problems are among the few families of nonlinear equations we know how to solve quickly and reliably on a computer. In this talk, we describe three different applications where eigenvalue analysis plays a central role: in the design of magnetic fields for fusion-relevant plasmas, in models of political influence and opinion formation, and in understanding the structure of large networks. In the process, we explore perturbations, approximations, nonlinearities, and the many other ways in which eigenvalue analysis touches on a wide range of mathematical topics."
+                >
+                    <img src="speakers/4-8.jpg" alt="David Bindel">
+                    <div class="talk-content">
+                        <div class="talk-title">From Bells of Frost to Opinion's Cost: The Many Applications of Eigenvalues</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">April 8</span>
+                            <span class="tag">Applied Math &amp; Spectral Analysis</span>
+                            <span>David Bindel &middot; Professor &amp; Director of CAM</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- April 15 -->
+                <div class="talk-card"
+                    data-name="Giannis Fikioris"
+                    data-bio="Giannis Fikioris is a final-year PhD student in the theory group at Cornell University and advised by Éva Tardos. His PhD has been supported by the NDSEG fellowship, the Onassis Scholarship, and the Google PhD fellowship. He is broadly working on Algorithmic Game Theory and Learning Theory problems. His most recent work has been on Mechanism Design and/or Online Learning with dynamic environments and global constraints."
+                    data-abstract="In this talk, we'll talk about some basic game theory concepts (Nash Equilibrium, Stackelberg equilibrium) and how they are used in repeated games. Specifically, we'll discuss how one should strategize when playing against a smart (enough) opponent, and we'll move from simpler (maybe even dumb?) solutions to complicated ones. Via this process, we'll discover Nash equilibria and then move on to (the less famous) Stackelberg equilibria. If time permits, we'll also talk a little bit about budget constraints."
+                >
+                    <img src="speakers/4-15.jpg" alt="Giannis Fikioris">
+                    <div class="talk-content">
+                        <div class="talk-title">Repeated Games and Manipulating your Opponent: Some Game Theory Basics</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">April 15</span>
+                            <span class="tag">Game Theory</span>
+                            <span>Giannis Fikioris &middot; PhD Candidate</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- April 19 -->
+                <div class="talk-card"
+                    data-name="Michael Ngo"
+                    data-bio="Michael Ngo is a fourth-year undergraduate in Computer Science with research interests lying in the intersection of cryptography, complexity, and learning theory. He is advised by Michael P. Kim. Michael is a co-founder of the CS Theory club, and he is also a peer mentor for the Engineering Leadership Certification Program at the Selander Center for Engineering Leadership."
+                    data-abstract="What can we say about the safety of Machine Learning? The goal of Trustworthy Machine Learning is to introduce rigor in defining what safety means, and how to achieve it (or prove impossibility!). First, I will introduce a sampling of important ideas in trustworthy machine learning, regarding privacy, robustness, detectability, alignment, and verifiability. Then, I will present my current research on verifiable delegation of learning which allows verification with provably exponentially less data. Finally, I will touch on how my four year journey as an undergraduate at Cornell informed my research and career choices.
+
+This talk is geared towards a general undergraduate CS audience, although some familiarity with machine learning will be helpful."
+                >
+                    <img src="speakers/4-19.jpg" alt="Michael Ngo">
+                    <div class="talk-content">
+                        <div class="talk-title">Trustworthy ML &amp; How To Trust Your Cloud Computing Service</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">April 19</span>
+                            <span class="tag">Trustworthy ML</span>
+                            <span>Michael Ngo &middot; Undergraduate Co-Founder</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- April 22 -->
+                <div class="talk-card"
+                    data-name="Linda Lu"
+                    data-bio="Linda Lu is a third-year PhD student in Computer Science at Cornell University. Linda is advised by Karthik Sridharan. Linda's research interests are in theoretical machine learning, particularly in the design of trustworthy learning algorithms that meet theoretical guarantees of privacy, fairness, and robustness. Linda's research is supported by a 2024-2025 Bowers-CIS Linkedin Fellowship."
+                    data-abstract="This talk provides an introduction to differential privacy, the cornerstone of privacy in modern data analysis and machine learning. We begin by presenting the formal definition of differential privacy and the intuition behind it. We then illustrate core mechanisms for achieving privacy, including randomized response and the Laplace mechanism, highlighting how they balance privacy and accuracy. Finally, we explore key implications of differential privacy, particularly its connections to generalization and memorization in learning algorithms. Time permitting, we will explore some recent extensions to differential privacy."
+                >
+                    <img src="speakers/4-22.jpg" alt="Linda Lu">
+                    <div class="talk-content">
+                        <div class="talk-title">A Noisy Introduction to Differential Privacy</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">April 22</span>
+                            <span class="tag">Differential Privacy</span>
+                            <span>Linda Lu &middot; PhD Candidate</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- April 29 -->
+                <div class="talk-card"
+                    data-name="Joey Rivkin"
+                    data-bio="Joey Rivkin is a first-year PhD student in theoretical computer science at Cornell University. He is advised by Michael P. Kim. He is interested in learning theory, complexity, and algorithm design. Recently he has focused on designing prediction algorithms that emit provable downstream benefits for decision makers."
+                    data-abstract="The Range Minimum Query problem asks: given an array of integers, how do we answer the query: “What is the minimum element between indices <i>i</i> and <i>j</i>?” For answering a single query, the question is not so interesting: we can't do any better than a linear scan of the array. But what if we need to answer many such queries? Can a bit of preprocessing make each query much faster? We will see some beautiful ideas and data structures for solving this problem, with runtimes that seem to defy <s>intuition</s> <b>gravity</b>."
+                >
+                    <img src="speakers/4-29.jpg" alt="Joey Rivkin">
+                    <div class="talk-content">
+                        <div class="talk-title">Defying Gravity with Range Minimum Queries</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">April 29</span>
+                            <span class="tag">Data Structures</span>
+                            <span>Joey Rivkin &middot; PhD Student</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Dialog for Talk Details -->
+    <div id="speaker-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="modal-name"></h2>
+            <h3>Biography</h3>
+            <p id="modal-bio"></p>
+            <h3>Talk Abstract</h3>
+            <p id="modal-abstract"></p>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer h-card">
+        <data class="u-url" href="schedule.html"></data>
+        <div class="wrapper">
+            <h2 class="footer-heading">Cornell CS Theory Club</h2>
+            <div class="footer-col-wrapper">
+                <div class="footer-col footer-col-1">
+                    <ul class="contact-list">
+                        <li class="p-name">Cornell CS Theory Club</li>
+                        <li><a class="u-email" href="mailto:mn542@cornell.edu">mn542@cornell.edu</a></li>
+                        <li><a href="https://it.cornell.edu/lyris/join-e-lists-lyris" target="_blank" rel="noopener">Mailing List Instructions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-2">
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About &amp; FAQ</a></li>
+                        <li><a href="leadership.html">Leadership Directory</a></li>
+                        <li><a href="resources.html">Courses &amp; Resources</a></li>
+                        <li><a href="https://www.cs.cornell.edu/research/theory" target="_blank" rel="noopener">Cornell Theory Group ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-3">
+                    <p>
+                        A student-run organization for students interested in theoretical computer science at Cornell University. 
+                        Weekly meetings on Wednesdays at 5:00 PM in CIS 450.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cornell CS Theory Club &middot; Cornell University, Ithaca, NY</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script: Modal + Real-Time Search -->
+    <script>
+        const modal = document.getElementById("speaker-modal");
+        const modalName = document.getElementById("modal-name");
+        const modalBio = document.getElementById("modal-bio");
+        const modalAbstract = document.getElementById("modal-abstract");
+        const closeBtn = document.querySelector(".close");
+        const talkCards = document.querySelectorAll(".talk-card");
+        const searchInput = document.getElementById("talk-search");
+
+        talkCards.forEach((talk) => {
+            talk.addEventListener("click", () => {
+                modalName.textContent = talk.dataset.name;
+                modalBio.innerHTML = talk.dataset.bio;
+                modalAbstract.innerHTML = talk.dataset.abstract;
+                modal.style.display = "block";
+            });
+        });
+
+        closeBtn.onclick = () => (modal.style.display = "none");
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = "none";
+        };
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.style.display === "block") {
+                modal.style.display = "none";
+            }
+        });
+
+        // Search Filter
+        searchInput.addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            talkCards.forEach((card) => {
+                const text = card.textContent.toLowerCase() + " " + 
+                             (card.dataset.name || "").toLowerCase() + " " + 
+                             (card.dataset.abstract || "").toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        // Autofocus search if URL has ?search
+        if (window.location.search.includes("search")) {
+            searchInput.focus();
+        }
+    </script>
+</body>
+</html>
