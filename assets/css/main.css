@@ -506,6 +506,10 @@ figcaption {
     transform-origin: center bottom;
 }
 
+.zoom-elizabeth {
+    object-position: center top;
+}
+
 .leadership-card h4 {
     color: #111111;
     font-size: 17px;

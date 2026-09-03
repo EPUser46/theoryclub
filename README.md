@@ -20,7 +20,6 @@ The website is styled after the Cornell Physics Wiki format (clean Jekyll Minima
 - `schedule.html` - Full Spring 2026 talk schedule with search filtering and interactive speaker bio/abstract modals
 - `leadership.html` - Executive board officers and faculty advisor directory
 - `about.html` - Club mission, meeting format, topics, mathematical prerequisites, and FAQs
-- `resources.html` - Recommended Cornell courses (CS 2800, CS 4820, etc.), Theory Group links, and reading materials
 - `assets/css/main.css` - Main stylesheet matching the Cornell Physics Wiki design system
 
 ### Local Preview
