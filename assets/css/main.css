@@ -232,7 +232,7 @@ li {
     border-bottom: 1px solid #eeeeee;
 }
 
-.subnav-pills a {
+.subnav-pills a, button {
     display: inline-block;
     font-size: 13px;
     font-weight: 500;
@@ -245,7 +245,7 @@ li {
     transition: all 0.15s ease;
 }
 
-.subnav-pills a:hover {
+.subnav-pills a:hover, button:hover {
     background: #b31b1b;
     color: #ffffff;
     border-color: #b31b1b;
@@ -817,4 +817,9 @@ table td {
         padding: 8px 10px;
         font-size: 14px;
     }
+}
+
+/* --- General / Utilities --- */
+.hidden {
+    display: none;
 }

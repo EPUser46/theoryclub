@@ -35,16 +35,16 @@
     <!-- Main Page Content -->
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <h1 class="page-heading">Spring 2026 Talk Schedule</h1>
+            <h1 class="page-heading">Fall 2026 Talk Schedule</h1>
 
             <div class="subnav-pills">
-                <a href="#speakers">All 10 Talks</a>
+                <a href="#curr-speakers" id="all-talks-btn">All Talks</a>
                 <a href="#meeting-info">Meeting Format</a>
                 <a href="#talk-search">Search Talks</a>
             </div>
 
             <p>
-                Our meetings take place on <strong>Wednesdays from 5:00 PM to 6:15 PM</strong> in <strong>[TBD] (Gates Hall)</strong>. 
+                Our meetings take place on <strong>Wednesdays from 5:00 PM to 6:15 PM</strong> in <strong>CIS 373 (Gates Hall)</strong>. 
                 Each session starts with a 30-minute reception with pizza, followed by an hour-long research presentation and lively discussion.
             </p>
 
@@ -59,8 +59,34 @@
                 <input type="text" id="talk-search" class="search-input" placeholder="Search talks by speaker, title, topic, or date..." aria-label="Search talks">
             </div>
 
-            <!-- Talks List -->
-            <div class="talk-list" id="speakers">
+            <!-- Current Talks List-->
+            <div class="talk-list" id="curr-speakers">
+
+                <!-- Sept 16 -->
+                <div class="talk-card"
+                    data-name="Erasmo Tani"
+                    data-bio="Erasmo Tani is an assistant teaching professor in the department of Computer Science. His research is in the theory of algorithms, with a focus on algorithms for data science and machine learning. Prior to joining Cornell, he obtained his PhD from the University of Chicago, and was a postdoctoral researcher at Sapienza University of Rome."
+                    data-abstract="TBD"
+                >
+                    <img src="speakers/9-16.png" alt="Erasmo Tani">
+                    <div class="talk-content">
+                        <div class="talk-title">TBD</div>
+                        <div class="talk-meta">
+                            <span class="tag carnelian">Sept 16</span>
+                            <span class="tag">Algorithms</span>
+                            <span>Erasmo Tani &middot; Assistant Professor</span>
+                            <span class="talk-details-btn">Abstract &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subnav-pills">
+                <button id="show-talks-btn">View Past Talks</button>
+            </div>
+
+            <!-- Old Talks List -->
+            <div class="talk-list hidden" id="old-speakers">
 
                 <!-- Feb 25 -->
                 <div class="talk-card"
@@ -360,6 +386,27 @@ This talk is geared towards a general undergraduate CS audience, although some f
         if (window.location.search.includes("search")) {
             searchInput.focus();
         }
+    </script>
+
+    <!-- Script for talks list -->
+    <script>
+        const showBtn = document.getElementById("show-talks-btn");
+        const allBtn = document.getElementById("all-talks-btn");
+        const pastCardsWrapper = document.getElementById("old-speakers");
+
+        showBtn.addEventListener("click", function(){
+            pastCardsWrapper.classList.toggle("hidden");
+            if(pastCardsWrapper.classList.contains("hidden")){
+                showBtn.textContent = "View Past Talks";
+            }else {
+                showBtn.textContent = "Hide Past Talks";
+            }
+        });
+
+        allBtn.addEventListener("click", function(){
+            pastCardsWrapper.classList.remove("hidden");
+            showBtn.textContent = "Hide Past Talks";
+        });
     </script>
 </body>
 </html>
